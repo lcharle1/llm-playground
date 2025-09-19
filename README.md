@@ -53,11 +53,11 @@ PUT YOUR ANSWER HERE.
 Now it's your turn: find a story that you wrote or are very familiar with that's published online, and try the same process, altering the command and then evaluating the result.
 
 ```bash
-
+python -m newspaper --url=https://www.greenbeltnewsreview.com/news-stories/citizens-police-academy-has-largest-class-since-pandemic/?highlight=laura+charleston/ -of=text | llm -m groq/openai/gpt-oss-120b "summarize this story in 3 paragraphs"
 
 ```
 
-YOUR EVALUATION HERE.
+YOUR EVALUATION HERE: It worked well in accepting my link and providing me three paragraphs summarizing the story. I can tell it really did analyze and read the story because it says "sensationalized portrayals of law enforcement on television", which correlates to one of the Academy's coordinator's quote regarding law enforcement's "exaggerated" portrayal on television. 
 
 ### Restructuring Information
 
@@ -72,10 +72,12 @@ That "no yapping" thing? That's one of the ways you get LLMs to stop narrating t
 Now it's your turn: find a short (3 pages or less) news story that contains unstructured text, save it as a text file and drop it into the list of files on the left side. Then create a prompt like the one above that turns some elements of it into structured data. Put your prompt in the space below, and below that tell me how the LLM did.
 
 ```bash
-
+cat newsstory.txt | llm -m groq-llama-3.3-70b "produce only an array of JSON objects based on
+ the text with the following keys: name, sanction, date, description. The date should be in the yyyy-mm-dd format. No yapping." 
 ```
 
-PUT YOUR EVALUATION HERE.
+PUT YOUR EVALUATION HERE: The prompt worked and it gave me a list of json objects with the categories name, sanction, date, and description. It correctly assigned sanction, date, and description for every name. Even the Greenbelt Citizens Police Academy. The only two with dates are the Greenbelt Citizens Police Academy and Ricardo Dennis. Everyone could technically have the same date since the article was published on the same day.
+
 
 ### Vision Models
 
@@ -93,7 +95,7 @@ Now it's your turn: find an image _that you would be ok showing to your grandmot
 llm -m gemini-2.5-flash "YOUR QUESTION" -a YOUR_FILE 
 ```
 
-PUT YOUR EVALUATION HERE.
+PUT YOUR EVALUATION HERE: I used the image of a strawberry cake and it succeeded when I asked "what fruit is on the cake in the image?". But it had me thinking, what if it said strawberry because I named the image 'strawberrycake'. So I renamed it to 'blueberrycake' and asked the question again. It succeeded and said strawberry.
 
 
 ### Audio Models
@@ -106,13 +108,15 @@ llm -m whisper-large-v3-turbo -a YOUR_FILE
 
 How did the LLM do compared to the original transcript?
 
-PUT YOUR EVALUATION HERE.
+PUT YOUR EVALUATION HERE: There are a few words missing. From the original transcript it says "We again went into the federal courts, and prior to going into the court the state of South Carolina decided that they would close the golf cour—I mean the, the state park down" and the new transcript says "We again went into the federal courts and prior to going into the court, the state of South Carolina decided that they would close the state park down". There are some incorrect translations such as the original transcript being "Therefore when we reached the court several days later, it was looked upon as a moot case" and the new transcript "Therefore, when we reached the court several days later, it was looked upon as a new case". So some of the words are either missing or incorret. 
+
 
 ### How You Could Use AI
 
 Thinking about news archives, write a few examples of how you might use LLMs to help (beyond writing code). Be specific: don't say that you'll use it to accomplish a larger goal. Instead, say how it could perform or improve specific tasks. I encourage you to think big.
 
-PUT YOUR ANSWERS HERE.
+PUT YOUR ANSWERS HERE: I would use LLMs to analyze large data sets or images or large texts, but with a grain of rice still. As we saw with the audio, there were some incorrect parts. With the md_doc.png, we know it can detect text through images. Which is an issue that we had with other LLMs. Some LLMs have limits when it comes to how much content you provide it, so a proper strategy needs to be planned before submitting contents and asking it questions. With the JSON objects, with a more specific question, I can see the potential of having it organize informtion from large text. 
+
 
 ### Finishing Up
 

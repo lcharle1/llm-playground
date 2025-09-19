@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Ricardo Dennis",
+    "sanction": "Greenbelt Police Department",
+    "date": "2024-03-07",
+    "description": "Public Information Officer"
+  },
+  {
+    "name": "Tim White",
+    "sanction": "Greenbelt Police Department",
+    "date": null,
+    "description": "Deputy Police Chief"
+  },
+  {
+    "name": "TeArria Cannon",
+    "sanction": null,
+    "date": null,
+    "description": "Citizen Police Academy student"
+  },
+  {
+    "name": "Jenni Pompi",
+    "sanction": "Greenbelt City Council",
+    "date": null,
+    "description": "Councilmember and Citizen Police Academy student"
+  },
+  {
+    "name": "Danielle McKinney",
+    "sanction": "Greenbelt City Council",
+    "date": null,
+    "description": "Councilmember and Citizen Police Academy student"
+  },
+  {
+    "name": "Greenbelt Citizens Police Academy",
+    "sanction": "Greenbelt Police Department",
+    "date": "2024-03-07",
+    "description": "10-week course on police work and procedures"
+  }
+]
